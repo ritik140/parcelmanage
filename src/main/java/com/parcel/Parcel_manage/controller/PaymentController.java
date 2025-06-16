@@ -1,9 +1,9 @@
 package com.parcel.Parcel_manage.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,22 +25,25 @@ public class PaymentController {
 	private PaymentService paymentService;
 
 	@PostMapping("/pay")
-	public Payment createPayment(@RequestBody Payment payment) {
-		return paymentService.createPayment(payment);
+	public ResponseEntity<Payment> createPayment(@RequestBody Payment payment) {
+		Payment createdPayment = paymentService.createPayment(payment);
+		return ResponseEntity.ok(createdPayment);
 	}
 
 	@GetMapping
-	public List<Payment> getAllPayments() {
-		return paymentService.getAllPayments();
+	public ResponseEntity<List<Payment>> getAllPayments() {
+		return ResponseEntity.ok(paymentService.getAllPayments());
 	}
 
 	@GetMapping("/{id}")
-	public Optional<Payment> getPaymentById(@PathVariable int id) {
-		return paymentService.getPaymentById(id);
+	public ResponseEntity<Payment> getPaymentById(@PathVariable int id) {
+		Payment payment = paymentService.getPaymentById(id);
+		return ResponseEntity.ok(payment);
 	}
 
 	@DeleteMapping("/{id}")
-	public void deletePayment(@PathVariable int id) {
+	public ResponseEntity<Void> deletePayment(@PathVariable int id) {
 		paymentService.deletePayment(id);
+		return ResponseEntity.noContent().build(); // 204 No Content
 	}
 }

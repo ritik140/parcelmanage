@@ -7,4 +7,5 @@ import com.parcel.Parcel_manage.model.Payment;
 
 @Repository
 public interface PaymentRepository extends JpaRepository<Payment, Integer> {
+	Payment findByid(long id);
 }

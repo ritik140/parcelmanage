@@ -1,3 +1,6 @@
 2025-06-13 00:12:04.216224+05:30 jdbc[14]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]USERS"; expected "UPDATE"; SQL statement:
 USERS [42001-232]
+2025-06-16 22:42:11.661342+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]BOOKING_DETAILS"; expected "BACKUP, BEGIN"; SQL statement:
+BOOKING_DETAILS [42001-232]

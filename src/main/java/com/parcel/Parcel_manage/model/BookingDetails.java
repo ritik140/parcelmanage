@@ -34,7 +34,7 @@ public class BookingDetails {
 	private String bookingDate;
 	private String createdAt;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false, name = "payment_id", referencedColumnName = "id")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Payment paymentId;
