@@ -8,4 +8,5 @@ import com.parcel.Parcel_manage.model.BookingDetails;
 @Repository
 public interface BookingDetailsRepository extends JpaRepository<BookingDetails, Integer> {
 	// Custom queries if needed
+	BookingDetails findByid(int id);
 }

@@ -13,31 +13,31 @@ import com.parcel.Parcel_manage.repository.PaymentRepository;
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
-    @Autowired
-    private PaymentRepository paymentRepository;
+	@Autowired
+	private PaymentRepository paymentRepository;
 
-    @Override
-    public Payment createPayment(Payment payment) {
-        payment.setCreatedAt(LocalDateTime.now().toString());
-        return paymentRepository.save(payment);
-    }
+	@Override
+	public Payment createPayment(Payment payment) {
+		payment.setCreatedAt(LocalDateTime.now().toString());
+		return paymentRepository.save(payment);
+	}
 
-    @Override
-    public List<Payment> getAllPayments() {
-        return paymentRepository.findAll();
-    }
+	@Override
+	public List<Payment> getAllPayments() {
+		return paymentRepository.findAll();
+	}
 
-    @Override
-    public Payment getPaymentById(int id) {
-        return paymentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Payment not found with ID: " + id));
-    }
+	@Override
+	public Payment getPaymentById(int id) {
+		return paymentRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Payment not found with ID: " + id));
+	}
 
-    @Override
-    public void deletePayment(int id) {
-        if (!paymentRepository.existsById(id)) {
-            throw new ResourceNotFoundException("Payment not found with ID: " + id);
-        }
-        paymentRepository.deleteById(id);
-    }
+	@Override
+	public void deletePayment(int id) {
+		if (!paymentRepository.existsById(id)) {
+			throw new ResourceNotFoundException("Payment not found with ID: " + id);
+		}
+		paymentRepository.deleteById(id);
+	}
 }

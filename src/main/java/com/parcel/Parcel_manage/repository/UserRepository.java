@@ -6,4 +6,6 @@ import com.parcel.Parcel_manage.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 	User findByEmail(String email);
+
+	User findByid(int id);
 }
